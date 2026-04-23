@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naughty Premium Club</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      background: url('https://files.catbox.moe/7yozkf.jpg') no-repeat center center fixed; background-size: cover;
+    }
+    .top-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .top-button a {
+      background: rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
+    }
+    .blur-box {
+      backdrop-filter: blur(16px);
+      background-color: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(255, 105, 180, 0.25);
+      width: 90%;
+      max-width: 360px;
+      margin: 120px auto;
+    }
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 5px #000, 0 0 10px #000;
+      margin-bottom: 12px;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+    .text {
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 24px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      line-height: 1.5;
+    }
+    .btn {
+  border: 2px solid #000;
+
+  background: linear-gradient(135deg, #ff7bbf, #ff4da6);
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 17px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 14px rgba(255, 105, 180, 0.5);
+
+  border: none !important;
+  border-color: #000 !important;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4) inset;
+}
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .bottom-section {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+    }
+    .bottom-section a {
+      display: inline-block;
+      margin-top: 10px;
+      background: #25D366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+    .video-section {
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      background-color: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 30px 10px;
+      margin: 30px;
+    }
+    .video-section h2 {
+      text-align: center;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .filter-buttons button {
+  background: linear-gradient(135deg, #ffb6e6, #ff63c3);
+  color: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulseGlow 3s infinite alternate;
+
+      background-color: #444;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .filter-buttons button:hover {
+      background-color: #666;
+    }
+    
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.video-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(255, 105, 180, 0.3);
+}
+
+.video-card p {
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+    .video-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .video-card p {
+      font-weight: bold;
+      color: #ffffff;
+      padding: 10px;
+      font-size: 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    
+    .video-card p {
+      font-weight: bold;
+      color: #b4006e;
+      padding: 10px;
+      font-size: 16px;
+    }
+    @keyframes glowText {
+      0% { text-shadow: 0 0 5px #000, 0 0 10px #000; }
+      100% { text-shadow: 0 0 10px #000, 0 0 20px #000; }
+    }
+  
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    @keyframes slideGlow {
+      0% {
+        transform: translateY(-10px);
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff00cc;
+      }
+      100% {
+        transform: translateY(10px);
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff00cc;
+      }
+    }
+    .video-section h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 20px;
+      animation: slideGlow 2s ease-in-out infinite alternate;
+    }
+
+
+    @keyframes boxFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .blur-box {
+      animation: boxFadeIn 1s ease-out;
+    }
+
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+@keyframes glowTitle {
+  0% { transform: scale(1); text-shadow: 0 0 5px #fff, 0 0 10px #ff00cc; }
+  100% { transform: scale(1.05); text-shadow: 0 0 15px #fff, 0 0 30px #ff00cc; }
+}
+.title {
+  animation: glowTitle 2s ease-in-out infinite alternate;
+}
+
+
+@keyframes pulseChat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+
+/* Subtitle below title */
+.subtitle {
+  font-size: 16px;
+  color: #ffccf2;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Glowing box border */
+.blur-box {
+  position: relative;
+  animation: boxFadeIn 1.2s ease-out;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+}
+
+/* Animated gradient border (optional effect layer) */
+.blur-box::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #ff4da6, #ff7bbf, #a64dff);
+  z-index: -1;
+  filter: blur(18px);
+  border-radius: 25px;
+  opacity: 0.6;
+  animation: gradientGlow 6s ease infinite;
+}
+
+@keyframes gradientGlow {
+  0% { filter: blur(12px) brightness(1); }
+  50% { filter: blur(18px) brightness(1.3); }
+  100% { filter: blur(12px) brightness(1); }
+}
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 25px 25px;
+  z-index: -1;
+  animation: backgroundMove 30s linear infinite;
+}
+@keyframes backgroundMove {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+
+.video-section {
+  background-color: transparent;
+  border-radius: 25px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1300px;
+  animation: fadeInUp 1s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.video-section h2 {
+  font-size: 34px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: neonPop 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 8px #ff0077, 0 0 20px #ff0077;
+}
+@keyframes neonPop {
+  0% { text-shadow: 0 0 8px #ff0077; transform: scale(1); }
+  100% { text-shadow: 0 0 20px #ff0077; transform: scale(1.02); }
+}
+
+
+.video-card.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.video-card.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+.video-title {
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: popUpGlow 1s ease, shake 2s infinite;
+  text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff4da6;
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes popUpGlow {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.filter-buttons button {
+  background: linear-gradient(135deg, #ffb6e6, #ff63c3);
+  color: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulseGlow 3s infinite alternate;
+
+  background: transparent;
+  color: #000;
+  padding: 10px 22px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 22px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.filter-buttons button:hover {
+  background-color: rgba(0,0,0,0.05);
+  transform: scale(1.04);
+}
+
+
+
+
+.video-card video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+@keyframes glowSaweria {
+  from {
+    box-shadow: 0 0 10px #ff00cc, 0 0 20px #ff4da6;
+  }
+  to {
+    box-shadow: 0 0 20px #ff00cc, 0 0 30px #ff4da6;
+  }
+}
+
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px #ff63c3; transform: scale(1); }
+  100% { box-shadow: 0 0 20px #ff63c3; transform: scale(1.05); }
+}
+
+
+/* Animasi input glow */
+.glow-input {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  width: 80%;
+  max-width: 250px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  outline: none;
+  background-color: rgba(255,255,255,0.1);
+  box-shadow: 0 0 12px rgba(255,105,180,0.6), 0 0 20px rgba(255,105,180,0.4);
+  color: white;
+  animation: glowPulse 2s infinite alternate;
+}
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 10px rgba(255,105,180,0.4);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255,105,180,0.8);
+  }
+}
+
+
+/* Glow untuk input sandi */
+.glow-input {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  width: 80%;
+  max-width: 260px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  box-shadow: 0 0 8px #ff4da6, 0 0 14px #ff4da6, inset 0 0 10px rgba(255,255,255,0.2);
+  animation: glowInputAnim 2s infinite alternate;
+}
+@keyframes glowInputAnim {
+  0% { box-shadow: 0 0 8px #ff4da6, 0 0 14px #ff4da6; }
+  100% { box-shadow: 0 0 12px #ff79d1, 0 0 20px #ff79d1; }
+}
+
+/* Tombol masuk keren */
+.btn {
+  background: linear-gradient(135deg, #ff4da6, #ff79d1, #b84dff);
+  color: white;
+  padding: 14px 32px;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #ff4da6, 0 0 20px #b84dff;
+  transition: all 0.3s ease;
+  animation: rainbowGlow 3s ease-in-out infinite alternate;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+}
+
+@keyframes rainbowGlow {
+  0% { box-shadow: 0 0 12px #ff4da6, 0 0 20px #b84dff; }
+  100% { box-shadow: 0 0 18px #ff79d1, 0 0 28px #d64dff; }
+}
+
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+  <!-- Tombol Bantuan -->
+  <div class="top-button" id="helpButton">
+    <a href="https://wa.me/6281915567973" target="_blank">Bantuan</a>
+  </div>
+
+  <!-- Tampilan Awal -->
+  <div class="blur-box" id="landingSection">
+    
+<div style="text-align: right; margin-bottom: 10px;">
+  <a href="https://wa.me/6281991819101" target="_blank" style="
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    padding: 8px 18px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    animation: pulseChat 1.8s infinite;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  ">Chat Admin</a>
+</div>
+
+<div class="title">Naughty Premium Club</div>
+    <a href="https://asupankita.dev" target="_blank"><video src="https://files.catbox.moe/2wzdca.mp4" autoplay loop muted style="width: 100px; border-radius: 10px; margin-bottom: 15px; cursor: pointer;" controlsList="nodownload" oncontextmenu="return false;"></video></a>
+    
+    <div class="text">
+      <p style="margin-bottom: 15px; font-size: 16px; color: #ffe6f9;">
+        Akses khusus untuk kamu yang cari kenikmatan tanpa batas.
+Konten eksklusif, full HD, bebas iklan, dan selalu update.
+Gabung sekarang dan nikmatin semua fantasi jadi nyata.
+</b>.
+      </p>
+      <input type="password" id="passwordInput" class="glow-input" placeholder="Masukkan sandi" style="background-color: white; color: black;" 
+        style="padding: 10px 15px; border-radius: 20px; border: none; width: 80%; max-width: 250px;
+               margin-bottom: 15px; font-size: 14px; outline: none; box-shadow: 0 0 10px rgba(255,105,180,0.4);">
+      <div id="errorText" style="color: #ff7b7b; font-size: 13px; margin-bottom: 10px; display: none;">
+        Sandi salah. Coba lagi!
+      </div>
+    
+      
+   </div>
+    
+<button class="btn" style="padding:10px 20px; font-size:15px;" onclick="validatePassword()">Masuk</button>
+  </div>
+
+  <!-- Bagian Bawah -->
+  <div class="bottom-section">
+<div style="margin-top: 30px; color: #fff; font-size: 14px; animation: fadeInUp 2s ease-in-out infinite alternate;">
+  <p style="text-shadow: 0 0 5px #ff4da6;">Pengembang: <strong>AlpinDeveloper</strong></p>
+</div>
+
+    
+
+
+    
+  </div>
+
+  <!-- Tampilan Kedua: Video Grid -->
+  <div class="video-section fade-in" id="videoSection" style="display: none;">
+<script>document.getElementById("helpButton").style.display = "none";</script>
+    <h2 class="video-title">Dosa Tanggung Sendiri</h2>
+    <div class="filter-buttons">
+      <button onclick="filter(3)">update terbaru</button>
+      <button onclick="filter(1)">1</button>
+      <button onclick="filter(2)">2</button>
+    </div>
+<div class="video-grid">
+      
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/570xrn.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>aouto Coli 1</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/4nisyf.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>dosa tanggung sendiri 2</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/92l7kr.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>crot dalem 3</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/1nldnv.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 4</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/ueziev.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 5</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/ot207i.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 6</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/61exz7.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 7</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/3pt9pj.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 8</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/zem6pm.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 9</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/bit7bc.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 10</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/p0mva6.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 11</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/do7lf7.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 12</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/aqffis.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 13</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/xnd898.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 14</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/winped.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 15</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO016.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 16</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO017.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 17</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO018.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 18</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO019.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 19</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO020.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 20</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO021.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 21</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO022.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 22</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO023.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 23</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO024.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 24</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO025.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 25</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO026.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 26</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO027.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 27</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO028.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 28</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO029.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 29</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO030.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 30</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO031.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 31</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO032.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 32</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO033.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 33</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO034.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 34</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO035.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 35</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO036.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 36</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO037.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 37</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO038.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 38</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO039.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 39</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO040.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 40</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO041.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 41</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO042.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 42</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO043.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 43</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO044.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 44</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO045.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 45</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO046.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 46</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO047.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 47</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO048.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 48</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO049.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 49</p>
+    </div>
+    
+    <div class="video-card kolom1" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO050.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 50</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO051.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 51</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO052.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 52</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO053.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 53</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO054.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 54</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO055.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 55</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO056.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 56</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO057.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 57</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO058.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 58</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO059.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 59</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO060.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 60</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO061.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 61</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO062.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 62</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO063.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 63</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO064.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 64</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO065.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 65</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO066.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 66</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO067.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 67</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO068.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 68</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO069.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 69</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO070.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 70</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO071.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 71</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO072.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 72</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO073.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 73</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO074.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 74</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO075.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 75</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO076.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 76</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO077.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 77</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO078.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 78</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO079.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 79</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO080.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 80</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO081.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 81</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO082.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 82</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO083.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 83</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO084.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 84</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO085.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 85</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO086.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 86</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO087.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 87</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO088.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 88</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO089.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 89</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO090.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 90</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO091.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 91</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO092.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 92</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO093.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 93</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO094.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 94</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO095.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 95</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO096.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 96</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO097.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 97</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO098.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 98</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO099.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 99</p>
+    </div>
+    
+    <div class="video-card kolom2" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO100.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 100</p>
+    </div>
+    
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO101.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 101</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO102.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 102</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO103.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 103</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO104.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 104</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO105.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 105</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO106.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 106</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO107.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 107</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO108.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 108</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO109.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 109</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO110.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 110</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO111.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 111</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO112.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 112</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO113.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 113</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO114.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 114</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO115.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 115</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO116.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 116</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO117.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 117</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO118.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 118</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO119.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 119</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO120.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 120</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO121.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 121</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO122.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 122</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO123.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 123</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO124.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 124</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO125.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 125</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO126.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 126</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO127.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 127</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO128.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 128</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO129.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 129</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO130.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 130</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO131.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 131</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO132.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 132</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO133.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 133</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO134.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 134</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO135.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 135</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO136.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 136</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO137.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 137</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO138.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 138</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO139.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 139</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO140.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 140</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO141.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 141</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO142.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 142</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO143.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 143</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO144.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 144</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO145.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 145</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO146.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 146</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO147.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 147</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO148.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 148</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO149.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 149</p>
+    </div>
+    
+    <div class="video-card kolom3" class="video-card fade-in">
+      <video src="https://files.catbox.moe/VIDEO150.mp4" controls playsinline controlsList="nodownload" oncontextmenu="return false;"></video>
+      <p>telegram 150</p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+  function showVideos() {
+    const helpBtn = document.getElementById("helpButton"); if(helpBtn) helpBtn.style.display = "none";
+    document.getElementById("helpButton").style.display = "none";
+    document.getElementById("landingSection").style.display = "none";
+    const section = document.getElementById("videoSection");
+    section.style.display = "block";
+    setTimeout(() => {
+      section.classList.add("show");
+    }, 50);
+  }
+
+  function filter(kolom) {
+    const all = document.querySelectorAll('.video-card');
+    all.forEach(card => {
+      if (card.classList.contains('kolom' + kolom)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  
+  function validatePassword() {
+    const input = document.getElementById("passwordInput").value;
+    const errorText = document.getElementById("errorText");
+    if (input === "bebas23") {
+      errorText.style.display = "none";
+      showVideos();
+    } else {
+      errorText.style.display = "block";
+    }
+  }
+
+  window.onload = () => filter(1);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (!entry.isIntersecting && !video.paused) {
+        video.pause();
+      }
+      if (entry.isIntersecting) {
+        video.parentElement.classList.add("show");
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll(".video-card video").forEach(video => {
+    observer.observe(video);
+    video.parentElement.classList.add("fade-in");
+  });
+</script>
+</body>
+</html>
